@@ -115,7 +115,7 @@ This is a classic use case for templates - looping. And, instead of having to le
 
 ```js
 `<ul>
-${data.map(item => `<li>${item}</li>`)}
+${data.map(item => `<li>${item}</li>`).join('')}
 </ul`
 ```
 
