@@ -1,7 +1,5 @@
 # HTML - in - JS
 
-![icon](./html-in-js.png)
-
 ## The Perfect Site Generator
 
 Programming a simple, static, website is trickier than it looks. Of course we can write the first version quickly but every subsequent version just gets harder and seems more brittle with each change.
@@ -26,6 +24,8 @@ So The Perfect Site Generator would - ideally - require
 2. Allow us to add to HTML/CSS loops, conditionals, functions, scoping - all the good stuff that we've discovered we like over these years.
 
 And - with the advent of [ES6](https://www.ecma-international.org/ecma-262/6.0/index.html#sec-arrow-function-definitions) - this Magical Perfect Site Generation Option is now a reality!
+
+![icon](./html-in-js.png)
 
 ## Just Use Javascript
 
