@@ -1,0 +1,26 @@
+{
+  "name": "html-in-js",
+  "version": "1.0.0",
+  "description": "Easily write modular and flexible HTML sites using just the javascript you know and love",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theproductiveprogrammer/html-in-js.git"
+  },
+  "keywords": [
+    "site-generator",
+    "html-in-js",
+    "html",
+    "javascript",
+    "css-processor"
+  ],
+  "author": "charles.lobo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theproductiveprogrammer/html-in-js/issues"
+  },
+  "homepage": "https://github.com/theproductiveprogrammer/html-in-js#readme"
+}
