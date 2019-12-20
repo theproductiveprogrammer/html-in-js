@@ -143,7 +143,7 @@ lines| Split data into lines | Splitting data into lines is useful for processin
 save | Saves data into file | `save(html, path)`
 copy | Copies file into deployment | `copy(src, dst)`
 md   | Convert markdown into HTML | `md('# Hello World!')
-htmlboilerplate | Use [HTML 5 Boilerplate](https://html5boilerplate.com) | `htmlboilerplate()` - returns the HTML boilerplate which can then be edited with `lines()` or `edit()` <br/> `htmlboilerplate(location)` - saves all required files (jquery, normalize.css,etc) into `location`
+htmlboilerplate | Use [HTML 5 Boilerplate](https://html5boilerplate.com) | `htmlboilerplate()` - returns the HTML boilerplate which can then be edited with `lines()` or `edit()` <br/> `htmlboilerplate(location)` - saves all required files (jquery, normalize.css,etc) into `location` (you can update the webmanifest/css/js and save your own favicon and icon.png)
 clean | Cleans/deletes the file/folder passed in | USE WITH CARE
 edit | Can be used to edit a file | `edit(line => if(line.match(/sidebar content/)) return sidebar_content())` <br/> `edit(line => if(line.match/jquery/) return helper.DELETE)`
 
