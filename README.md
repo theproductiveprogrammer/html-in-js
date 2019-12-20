@@ -190,7 +190,7 @@ This is the list of helper functions available:
 
 ## Example Site
 
-You can see an example of HTML-in-JS in action [here](./example-site/index.html)
+You can see an example of HTML-in-JS in action [here](./example-site/)
 
 ## Your Contribution Welcome
 
