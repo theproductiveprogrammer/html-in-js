@@ -23,4 +23,8 @@
     "url": "https://github.com/theproductiveprogrammer/html-in-js/issues"
   },
   "homepage": "https://theproductiveprogrammer.github.io/html-in-js/",
+  "dependencies": {
+    "html5-boilerplate": "^7.3.0",
+    "markdown-it": "^10.0.0"
+  }
 }

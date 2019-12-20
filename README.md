@@ -119,6 +119,37 @@ This is a classic use case for templates - looping. But now, instead of having t
 </ul>`
 ```
 
+## Helper Functions
+When generating HTML-from-JS there are a few operations that are commonly required - reading from disk, saving a file, parsing markdown, using a HTML template, and so on.
+
+[Here](./index.js) we have some helper functions that support these common cases which can be used to quickstart your site development (or just as a starting point for anyone who is creating their own).
+
+```js
+/*  example use */
+const helper = require('html-in-js')
+
+function createSite() {
+  helper.save(helper.md(helper.read('content.md)), 'index.html')
+  ...
+}
+```
+
+This is the list of helper functions available:
+
+Function | Description | Notes
+--|--|--
+read | Read data from file | `read('content.md')`
+lines| Split data into lines | Splitting data into lines is useful for processing/filtering and so on
+save | Saves data into file | `save(html, path)`
+copy | Copies file into deployment | `copy(src, dst)`
+md   | Convert markdown into HTML | `md('# Hello World!')
+htmlboilerplate | Use [HTML 5 Boilerplate](https://html5boilerplate.com) | `htmlboilerplate()` - returns the HTML boilerplate which can then be edited with `lines()` or `edit()` <br/> `htmlboilerplate(location)` - saves all required files (jquery, normalize.css,etc) into `location`
+clean | Cleans/deletes the file/folder passed in | USE WITH CARE
+edit | Can be used to edit a file | `edit(line => if(line.match(/sidebar content/)) return sidebar_content())` <br/> `edit(line => if(line.match/jquery/) return helper.DELETE)`
+
+## Example Site
+
+You can see an example of HTML-in-JS in action [here](./example-site/README.md)
 
 ## Your Contribution Welcome
 
