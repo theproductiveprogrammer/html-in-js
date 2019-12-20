@@ -136,16 +136,57 @@ function createSite() {
 
 This is the list of helper functions available:
 
-Function | Description | Notes
---|--|--
-read | Read data from file | `read('content.md')`
-lines| Split data into lines | Splitting data into lines is useful for processing/filtering and so on
-save | Saves data into file | `save(html, path)`
-copy | Copies file into deployment | `copy(src, dst)`
-md   | Convert markdown into HTML | `md('# Hello World!')
-htmlboilerplate | Use [HTML 5 Boilerplate](https://html5boilerplate.com) | `htmlboilerplate()` - returns the HTML boilerplate which can then be edited with `lines()` or `edit()` <br/> `htmlboilerplate(location)` - saves all required files (jquery, normalize.css,etc) into `location` (you can update the webmanifest/css/js and save your own favicon and icon.png)
-clean | Cleans/deletes the file/folder passed in | USE WITH CARE
-edit | Can be used to edit a file | `edit(line => if(line.match(/sidebar content/)) return sidebar_content())` <br/> `edit(line => if(line.match/jquery/) return helper.DELETE)`
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read</td>
+<td>Read data from file</td>
+<td><code>read('content.md')</code></td>
+</tr>
+<tr>
+<td>lines</td>
+<td>Split data into lines</td>
+<td>Splitting data into lines is useful for processing/filtering and so on</td>
+</tr>
+<tr>
+<td>save</td>
+<td>Saves data into file</td>
+<td><code>save(html, path)</code></td>
+</tr>
+<tr>
+<td>copy</td>
+<td>Copies file into deployment</td>
+<td><code>copy(src, dst)</code></td>
+</tr>
+<tr>
+<td>md</td>
+<td>Convert markdown into HTML</td>
+<td>`md('# Hello World!')</td>
+</tr>
+<tr>
+<td>htmlboilerplate</td>
+<td>Use <a href="https://html5boilerplate.com" rel="nofollow">HTML 5 Boilerplate</a></td>
+<td><code>htmlboilerplate()</code> - returns the HTML boilerplate which can then be edited with <code>lines()</code> or <code>edit()</code> <br> <code>htmlboilerplate(location)</code> - saves all required files (jquery, normalize.css,etc) into <code>location</code> (you can update the webmanifest/css/js and save your own favicon and icon.png)</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>Cleans/deletes the file/folder passed in</td>
+<td>USE WITH CARE</td>
+</tr>
+<tr>
+<td>edit</td>
+<td>Can be used to edit a file</td>
+<td><code>edit(line =&gt; if(line.match(/sidebar content/)) return sidebar_content())</code> <br> <code>edit(line =&gt; if(line.match/jquery/) return helper.DELETE)</code></td>
+</tr>
+</tbody>
+</table>
 
 ## Example Site
 
