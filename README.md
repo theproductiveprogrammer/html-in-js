@@ -185,6 +185,11 @@ This is the list of helper functions available:
 <td>Can be used to edit a file</td>
 <td><code>edit(line =&gt; if(line.match(/sidebar content/)) return sidebar_content())</code> <br> <code>edit(line =&gt; if(line.match/jquery/) return helper.DELETE)</code></td>
 </tr>
+<tr>
+<td>findAll</td>
+<td>Returns all files in a path recursively</td>
+<td><code>findAll('assets','.js')</code> <br> <code>findAll('assets,'js') // Also works</code> <br> <code>findAll('assets') // Don't filter by extension</code></td>
+</tr>
 </tbody>
 </table>
 

@@ -261,6 +261,28 @@ function edit(data, fn) {
 }
 
 
+/*    outcome/
+ * Find all files in the given directory, optionally matching the passed
+ * in extension.
+ */
+function findAll(loc, ext) {
+  let files = []
+  if(ext && ext[0] != '.') ext = `.${ext}`
+  let entries = fs.readdirSync(loc, { withFileTypes: true })
+  for(let i = 0;i < entries.length;i++) {
+    let curr = entries[i]
+    let name = path.join(loc, curr.name)
+    if(curr.isFile()) {
+      if(!ext || name.substr(-ext.length) == ext) {
+        files.push(name)
+      }
+    }
+    if(curr.isDirectory()) files = files.concat(findAll(name, ext))
+  }
+  return files
+}
+
+
 /*    exports/    */
 module.exports = {
     read,
@@ -275,5 +297,7 @@ module.exports = {
     clean,
     edit,
     DELETE,
+
+    findAll,
 }
 
