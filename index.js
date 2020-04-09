@@ -272,6 +272,7 @@ function findAll(loc, ext) {
   for(let i = 0;i < entries.length;i++) {
     let curr = entries[i]
     let name = path.join(loc, curr.name)
+    if(loc.startsWith('./')) name = './' + name
     if(curr.isFile()) {
       if(!ext || name.substr(-ext.length) == ext) {
         files.push(name)
