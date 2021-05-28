@@ -81,11 +81,26 @@ function ensureExists(dir, cb) {
  * destination.
  */
 function copy(src,dst) {
-    dst = normalize_1(dst, src)
-    if(already_copied_1(src, dst)) return
-    let dir = path.dirname(dst)
-    ensureExists(dir)
-    fs.copyFileSync(src,dst)
+    if(isDir(src)) copy_dir_1(src, dst)
+    else copy_file_1(src, dst)
+
+    function copy_dir_1(src, dst) {
+        ensureExists(dst)
+        const entries = fs.readdirSync(src)
+        for(let i = 0;i < entries.length;i++) {
+            const curr = path.join(src, entries[i])
+            const currdst = path.join(dst, entries[i])
+            copy(curr, currdst)
+        }
+    }
+
+    function copy_file_1(src, dst) {
+        dst = normalize_1(dst, src)
+        if(already_copied_1(src, dst)) return
+        let dir = path.dirname(dst)
+        ensureExists(dir)
+        fs.copyFileSync(src,dst)
+    }
 
     function normalize_1(dst, src) {
         if(!isDir(dst)) return dst
