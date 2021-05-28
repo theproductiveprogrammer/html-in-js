@@ -1,6 +1,6 @@
 {
   "name": "html-in-js",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Easily write modular and flexible HTML sites using just the javascript you know and love",
   "main": "index.js",
   "scripts": {
