@@ -25,6 +25,6 @@
   "homepage": "https://theproductiveprogrammer.github.io/html-in-js/",
   "dependencies": {
     "html5-boilerplate": "^7.3.0",
-    "markdown-it": "^12.3.2"
+    "markdown-it": "^13.0.1"
   }
 }
