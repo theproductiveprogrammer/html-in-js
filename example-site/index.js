@@ -1,5 +1,6 @@
 'use strict'
-const helper = require('html-in-js')
+//const helper = require('html-in-js')
+const helper = require('..')
 
 const fs = require('fs')
 const path = require('path')
