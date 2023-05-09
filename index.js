@@ -300,7 +300,8 @@ function findAll(loc, ext) {
 }
 
 /*    outcome/
- * executes the given command and returns (err, {exitcode, stderr, stdout})
+ * executes the given command and returns {exitcode, stderr, stdout}.
+ * Throws an 'error' if encounters an error
  */
 function exec(cmd) {
   cmd = cmd.trim();
@@ -312,11 +313,12 @@ function exec(cmd) {
   stderr = stderr && stderr.toString();
   if(!stderr && error) stderr = error.message;
   if(!error && stderr) error = new Error(stderr);
-  return (error, {
+  if(error) throw error;
+  return {
     stdout,
     stderr,
     exitCode,
-  });
+  };
 }
 
 
