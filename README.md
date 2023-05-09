@@ -166,6 +166,11 @@ This is the list of helper functions available:
 <td><code>copy(src, dst)</code></td>
 </tr>
 <tr>
+<td>mkdir</td>
+<td>Makes a directory path (recursively)</td>
+<td><code>mkdir(path)</code></td>
+</tr>
+<tr>
 <td>exec</td>
 <td>Executes a command in the default shell (only pass in trusted commands!)</td>
 <td><code>exec(cmd)</code>: returns <code>(err, {stdout,stderr,exitCode})</code> USE WITH CARE</td>
