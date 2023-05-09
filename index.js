@@ -321,6 +321,13 @@ function exec(cmd) {
   };
 }
 
+/*    outcome/
+ * make a directory path (recursively)
+ */
+function mkdir(path) {
+  fs.mkdirSync(path, { recursive: true });
+}
+
 
 
 /*    exports/    */
@@ -329,6 +336,7 @@ module.exports = {
     lines,
     save,
     copy,
+    mkdir,
 
     md,
     htmlboilerplate,
