@@ -11,6 +11,7 @@
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
+const { spawnSync } = require('child_process');
 
 const markdownit = require('markdown-it')({
     html: true,
@@ -298,6 +299,27 @@ function findAll(loc, ext) {
   return files
 }
 
+/*    outcome/
+ * executes the given command and returns (err, {exitcode, stderr, stdout})
+ */
+function exec(cmd) {
+  cmd = cmd.trim();
+  const args = cmd.split(/\s+/g);
+  cmd = args.shift();
+  let { pid, out, stdout, stderr, status, signal, error } = spawnSync(cmd, args);
+  const exitCode = status;
+  stdout = stdout && stdout.toString();
+  stderr = stderr && stderr.toString();
+  if(!stderr && error) stderr = error.message;
+  if(!error && stderr) error = new Error(stderr);
+  return (error, {
+    stdout,
+    stderr,
+    exitCode,
+  });
+}
+
+
 
 /*    exports/    */
 module.exports = {
@@ -313,6 +335,8 @@ module.exports = {
     clean,
     edit,
     DELETE,
+
+    exec,
 
     findAll,
 }
