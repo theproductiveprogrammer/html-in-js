@@ -166,9 +166,14 @@ This is the list of helper functions available:
 <td><code>copy(src, dst)</code></td>
 </tr>
 <tr>
+<td>exec</td>
+<td>Executes a command in the default shell (only pass in trusted commands!)</td>
+<td><code>exec(cmd)</code>: returns <code>(err, {stdout,stderr,exitCode})</code> USE WITH CARE</td>
+</tr>
+<tr>
 <td>md</td>
 <td>Convert markdown into HTML</td>
-<td>`md('# Hello World!')</td>
+<td><code>md('# Hello World!')</code></td>
 </tr>
 <tr>
 <td>htmlboilerplate</td>
