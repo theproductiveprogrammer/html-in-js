@@ -304,8 +304,8 @@ function findAll(loc, ext) {
  * Throws an 'error' if encounters an error
  */
 function exec(cmd) {
-  cmd = cmd.trim();
-  const args = cmd.split(/\s+/g);
+  const args = cmd;
+  if(typeof cmd === 'string') args = cmd.trim().split(/\s+/g);
   cmd = args.shift();
   let { pid, out, stdout, stderr, status, signal, error } = spawnSync(cmd, args);
   const exitCode = status;
