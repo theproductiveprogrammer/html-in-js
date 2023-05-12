@@ -300,15 +300,15 @@ function findAll(loc, ext) {
 }
 
 /*    outcome/
- * executes the given command in the current working directory provided
+ * executes the given command with the options provided.
  * and returns {exitcode, stderr, stdout}.
  * Throws an 'error' if encounters an error.
  */
-function exec(cmd, cwd) {
+function exec(cmd, opts) {
   const args = cmd;
   if(typeof cmd === 'string') args = cmd.trim().split(/\s+/g);
   cmd = args.shift();
-  let { pid, out, stdout, stderr, status, signal, error } = spawnSync(cmd, args);
+  let { pid, out, stdout, stderr, status, signal, error } = spawnSync(cmd, args, opts);
   const exitCode = status;
   stdout = stdout && stdout.toString();
   stderr = stderr && stderr.toString();
