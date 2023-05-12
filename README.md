@@ -173,7 +173,9 @@ This is the list of helper functions available:
 <tr>
 <td>exec</td>
 <td>Executes a command in the default shell (only pass in trusted commands!)</td>
-<td><code>exec(cmd) or<br/>exec([cmd,and,args])</code>: returns <code>(err, {stdout,stderr,exitCode})</code> USE WITH CARE</td>
+<td><code>exec(cmd) or exec([cmd,and,args])</code>: returns <code>(err, {stdout,stderr,exitCode})</code>
+<br/>Takes an optional <code>options</code> argument that supports all <a href=https://nodejs.org/api/child_process.html#child_processspawnsynccommand-args-options">spawn</a> options. The most useful are <code>{ cwd: 'current/working/directory', env: {key:value} }</code>. USE WITH CARE
+</td>
 </tr>
 <tr>
 <td>md</td>
