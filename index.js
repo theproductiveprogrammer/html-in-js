@@ -300,10 +300,11 @@ function findAll(loc, ext) {
 }
 
 /*    outcome/
- * executes the given command and returns {exitcode, stderr, stdout}.
- * Throws an 'error' if encounters an error
+ * executes the given command in the current working directory provided
+ * and returns {exitcode, stderr, stdout}.
+ * Throws an 'error' if encounters an error.
  */
-function exec(cmd) {
+function exec(cmd, cwd) {
   const args = cmd;
   if(typeof cmd === 'string') args = cmd.trim().split(/\s+/g);
   cmd = args.shift();
