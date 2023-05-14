@@ -149,7 +149,8 @@ function isDir(dst) {
  * Render markdown from text
  */
 function md(txt) {
-    return markdownit.render(txt)
+    if(txt.indexOf("\n") == -1) return markdownit.renderInline(txt);
+    else return markdownit.render(txt);
 }
 
 /*      understand/
