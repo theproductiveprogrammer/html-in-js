@@ -153,7 +153,7 @@ This is the list of helper functions available:
 <tr>
 <td>lines</td>
 <td>Split data into lines</td>
-<td>Splitting data into lines is useful for processing/filtering and so on</td>
+<td><code>lines(data)</code><br/>Splitting data into lines is useful for processing/filtering and so on</td>
 </tr>
 <tr>
 <td>save</td>
@@ -174,7 +174,7 @@ This is the list of helper functions available:
 <td>exec</td>
 <td>Executes a command in the default shell (only pass in trusted commands!)</td>
 <td><code>exec(cmd) or exec([cmd,and,args])</code>: returns <code>(err, {stdout,stderr,exitCode})</code>
-<br/>Takes an optional <code>options</code> argument that supports all <a href=https://nodejs.org/api/child_process.html#child_processspawnsynccommand-args-options">spawn</a> options. The most useful are <code>{ cwd: 'current/working/directory', env: {key:value} }</code>. USE WITH CARE
+<br/>Takes an optional <code>options</code> argument that supports all <a href=https://nodejs.org/api/child_process.html#child_processspawnsynccommand-args-options">spawn</a> options. The most useful are <code>{ cwd: 'current/working/directory', env: {key:value}, quiet: true }</code>. USE WITH CARE
 </td>
 </tr>
 <tr>
