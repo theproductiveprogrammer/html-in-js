@@ -317,7 +317,7 @@ function exec(cmd, opts) {
   if(!error && stderr) error = new Error(stderr);
   if(!error && exitCode) error = `${cmd} exited with error code: ${exitCode}`
   if(error) throw error;
-  if(!opts.quiet) console.log(stdout);
+  if(!opts || !opts.quiet) console.log(stdout);
   return {
     stdout,
     stderr,
