@@ -315,6 +315,7 @@ function exec(cmd, opts) {
   stderr = stderr && stderr.toString();
   if(!stderr && error) stderr = error.message;
   if(!error && stderr) error = new Error(stderr);
+  if(!error && exitCode) error = `${cmd} exited with error code: ${exitCode}`
   if(error) throw error;
   return {
     stdout,
