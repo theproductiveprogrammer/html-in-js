@@ -283,18 +283,24 @@ function edit(data, fn) {
  * in extension.
  */
 function findAll(loc, ext) {
-  let files = []
-  if(ext && ext[0] != '.') ext = `.${ext}`
+  let files = [];
+  let filterfn;
+
+  if(typeof ext === 'string') {
+    if(ext[0] != '.') ext = `.${ext}`;
+    filterfn = name => name.substr(-ext.length) == ext;
+  } else if(typeof ext === 'function') {
+    filterfn = ext;
+  } else {
+    filterfn = name => true;
+  }
+
   let entries = fs.readdirSync(loc, { withFileTypes: true })
   for(let i = 0;i < entries.length;i++) {
     let curr = entries[i]
     let name = path.join(loc, curr.name)
     if(loc.startsWith('./')) name = './' + name
-    if(curr.isFile()) {
-      if(!ext || name.substr(-ext.length) == ext) {
-        files.push(name)
-      }
-    }
+    if(curr.isFile() && filterfn(name)) files.push(name)
     if(curr.isDirectory()) files = files.concat(findAll(name, ext))
   }
   return files
