@@ -288,19 +288,23 @@ function findAll(loc, ext) {
 
   if(typeof ext === 'string') {
     if(ext[0] != '.') ext = `.${ext}`;
-    filterfn = name => name.substr(-ext.length) == ext;
+    filterfn = entry => {
+      if(!entry.isFile()) return true;
+      return entry.name.substr(-ext.length) == ext;
+    }
   } else if(typeof ext === 'function') {
     filterfn = ext;
   } else {
-    filterfn = name => true;
+    filterfn = entry => true;
   }
 
   let entries = fs.readdirSync(loc, { withFileTypes: true })
   for(let i = 0;i < entries.length;i++) {
     let curr = entries[i]
+    if(!filterfn(curr)) continue;
     let name = path.join(loc, curr.name)
     if(loc.startsWith('./')) name = './' + name
-    if(curr.isFile() && filterfn(name)) files.push(name)
+    if(curr.isFile()) files.push(name)
     if(curr.isDirectory()) files = files.concat(findAll(name, ext))
   }
   return files
