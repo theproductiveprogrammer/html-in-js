@@ -53,7 +53,7 @@ function save(what, where) {
 /*      outcome/
  * Create the folders in the path by creating each path in turn
  */
-function ensureExists(dir, cb) {
+function ensureExists(dir) {
     dir = path.normalize(dir)
     if(isDir(dir)) return /* nothing to do */
 
@@ -339,7 +339,11 @@ function exec(cmd, opts) {
  * make a directory path (recursively)
  */
 function mkdir(path) {
-  fs.mkdirSync(path, { recursive: true });
+  try {
+    fs.mkdirSync(path, { recursive: true });
+  } catch(e) {
+    if(e.code != 'EEXIST') throw(e);
+  }
 }
 
 
